@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Demo\DemoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Pos\SupplierController;
+use App\Http\Controllers\Pos\CustomerController;
 
 
 
@@ -30,7 +31,7 @@ Route::controller(AdminController::class)->group(function () {
      
 });
 
- // Admin All Route 
+ // Supplier All Route 
  Route::controller(SupplierController::class)->group(function () {
     Route::get('/supplier/all', 'SupplierAll')->name('supplier.all');
     Route::get('/supplier/add', 'SupplierAdd')->name('supplier.add');
@@ -39,19 +40,14 @@ Route::controller(AdminController::class)->group(function () {
     Route::post('/supplier/update', 'SupplierUpdate')->name('supplier.update');
     Route::get('/supplier/delete/{id}', 'SupplierDelete')->name('supplier.delete');
 
-
-
-
-
-
-    
      
+});
 
-
-
-
-    Route::get('/change/password', 'ChangePassword')->name('change.password');
-    Route::post('/update/password', 'UpdatePassword')->name('update.password');
+ // Customer All Route 
+ Route::controller(CustomerController::class)->group(function () {
+    Route::get('/customer/all', 'CustomerAll')->name('customer.all');
+    Route::get('/customer/add', 'CustomerAdd')->name('customer.add');
+    
      
 });
 
