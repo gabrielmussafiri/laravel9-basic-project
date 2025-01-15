@@ -48,4 +48,32 @@ class CustomerController extends Controller
 
 
     }//End CustomerStore
+
+    public function CustomerEdit($id){
+
+        $customer = Customer::findOrFail($id);
+        return view('backend.customer.customer_edit', compact('customer'));
+
+
+    } //End Customer
+
+    public function CustomerUpdate(Request $request){
+        $customer_id = $request->id;
+        Customer::findOrFail($customer_id)->update([
+
+            'name'=>$request->name,
+            'mobile_no' => $request->mobile_no,
+            'email'=>$request->email,
+            'address'=>$request->address,
+            'created_by'=>Auth::user()->id,
+            'created_at' => Carbon::now(),
+
+
+        ]);
+        $notification = array(
+            'message' => 'Customer Updated Successfully', 
+            'alert-type' => 'success'
+        );
+        return redirect()->route('customer.all')->with($notification);
+    }
 }
