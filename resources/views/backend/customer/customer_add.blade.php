@@ -15,7 +15,7 @@
             <h4 class="card-title">Add Customer </h4><br><br>
             
 
-            <form method="post" action="{{ route('supplier.store') }}" id="myForm">
+            <form method="post" action="{{ route('customer.store') }}" id="myForm" enctype="multipart/form-data">
                 @csrf
 
             <div class="row mb-3">
@@ -50,19 +50,17 @@
             </div>
             <!-- end row -->
 
-            <div class="row mb-3">
+            <!-- <div class="row mb-3">
                 <label for="example-text-input" class="col-sm-2 col-form-label">Customer/Vendor Logo </label>
                 <div class="form-group col-sm-10">
                     <input name="customer_image" class="form-control" type="file"  id="image">
                 </div>
-            </div>
+            </div> -->
             <!-- end row -->
 
               <div class="row mb-3">
                  <label for="example-text-input" class="col-sm-2 col-form-label">  </label>
-                <div class="col-sm-10">
-                    <img id="showImage" class="rounded avatar-lg" src="{{url('upload/no_image.jpg') }}" alt="Card image cap">
-                </div>
+               
             </div>
  
 
@@ -103,9 +101,7 @@
                 address: {
                     required : true,
                 }, 
-                customer_image: {
-                    required : false,
-                }, 
+               
             },
             messages :{
                 name: {
@@ -120,9 +116,7 @@
                 address: {
                     required : 'Please Enter The full address of the customer',
                 },
-                custom_image: {
-                    required : 'Select the customer image',
-                },
+               
             },
             errorElement : 'span', 
             errorPlacement: function (error,element) {

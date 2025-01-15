@@ -33,10 +33,10 @@
                         <tr>
                             <th>Sl</th>
                             <th>Name</th> 
-                            <th>Customer Image</th> 
+                            <!-- <th>Customer Image</th>  -->
                             <th>Email</th> 
                             <th>Address</th> 
-                            <th>Action</th>
+                            <th>Phone Number</th>
                             
                         </thead>
 
@@ -47,9 +47,11 @@
                         <tr>
                             <td> {{ $key+1}} </td>
                             <td> {{ $item->name }} </td> 
-                            <td> <img src="{{asset($item->customer_image)}}" style="width:60px;height:50px  "> </td> 
+                            <!-- <td> <img src="{{asset($item->customer_image)}}" style="width:60px;height:50px  "> </td>  -->
                             <td> {{ $item->email }} </td> 
-                            <td> {{ $item->address }} </td> 
+                            <td> {{ $item->address }} </td>
+                            <td> {{ $item->mobile_no }} </td>
+                            
                             
                             <td>
    <a href="{{ route ('supplier.edit',$item->id)}}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
